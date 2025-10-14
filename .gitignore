@@ -1,0 +1,43 @@
+# Composer dependencies
+/vendor/
+
+# Yii2 runtime & assets (generated at runtime)
+runtime/
+web/assets/
+
+# Yii2 debug & cache
+debug/
+cache/
+
+# IDE / Editor files
+/.idea/
+/.vscode/
+*.iml
+nbproject/
+.buildpath
+.project
+.settings
+
+# Node/npm (if using frontend tools)
+node_modules/
+npm-debug.log
+yarn.lock
+
+# PHPUnit / Codeception
+/tests/_output/*
+/tests/_support/_generated/*
+phpunit.phar
+/phpunit.xml
+
+# Logs
+*.log
+
+# Build / temp files
+/tmp/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Vagrant
+/.vagrant/
