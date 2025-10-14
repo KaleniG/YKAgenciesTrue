@@ -43,5 +43,5 @@ Thumbs.db
 /.vagrant/
 
 # SCSS
-.css
-.css.map
+*.css
+*.css.map
