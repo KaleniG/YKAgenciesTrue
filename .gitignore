@@ -41,3 +41,7 @@ Thumbs.db
 
 # Vagrant
 /.vagrant/
+
+# SCSS
+.css
+.css.map
