@@ -1,7 +1,10 @@
 <?php
 
+use app\assets\EmployeeAsset;
 use yii\helpers\Html;
 use yii\helpers\Url;
+
+EmployeeAsset::register($this);
 
 $this->title = $model->name;
 ?>
@@ -23,19 +26,23 @@ $this->title = $model->name;
     <br>
     <br>
     <h1>Add Employee:</h1>
-    <label for="employee-name">Name:
-      <input type="text" name="employee-name" id="employee-name" class="edit">
-    </label>
-    <br>
-    <label for="employee-surname">Surname:
-      <input type="text" name="employee-surname" id="employee-surname" class="edit">
-    </label>
-    <br>
-    <label for="employee-ssid">SSID:
-      <input type="text" name="employee-ssid" id="employee-ssid" class="edit">
-    </label>
-    <br><br>
-    <button type="button" name="add" class="edit">Add</button>
+    <form id="add-form" action="<?= Url::to(["employee/add"]) ?>" method="post">
+      <input type="hidden" name="_csrf" value="<?= Yii::$app->request->getCsrfToken() ?>">
+      <input type="hidden" name="Employee[agency_id]" value="<?= $model->id ?>">
+      <label for="employee-name">Name:
+        <input type="text" name="Employee[name]" id="employee-name" class="edit">
+      </label>
+      <br>
+      <label for="employee-surname">Surname:
+        <input type="text" name="Employee[surname]" id="employee-surname" class="edit">
+      </label>
+      <br>
+      <label for="employee-ssid">SSID:
+        <input type="text" name="Employee[ssid]" id="employee-ssid" class="edit">
+      </label>
+      <br><br>
+      <button type="submit" class="edit">Add</button>
+    </form>
   </div>
   <div class="table-wrapper-1">
     <h1>Employees:</h1>

@@ -6,6 +6,7 @@ use Yii;
 use yii\base\Controller;
 use app\models\Agency;
 use yii\web\NotFoundHttpException;
+use yii\web\Response;
 
 class AgencyController extends Controller
 {
@@ -32,5 +33,22 @@ class AgencyController extends Controller
     return $this->render("view", [
       "model" => $model
     ]);
+  }
+
+  public function actionAdd()
+  {
+    $model = new Agency();
+
+    if ($this->request->isAjax) {
+      $this->response->format = Response::FORMAT_JSON;
+      if ($model->load($this->request->post()) && $model->save()) {
+        return [
+          "success" => true,
+          "id" => $model->id
+        ];
+      }
+
+      return ["success" => false];
+    }
   }
 }

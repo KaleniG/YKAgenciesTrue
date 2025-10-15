@@ -15,7 +15,8 @@ class Employee extends ActiveRecord
   {
     return [
       [["ssid"], "unique"],
-      [["name", "surname", "ssid"], "string", "max" => 255,  "required"],
+      [["name", "surname", "ssid"], "required"],
+      [["name", "surname", "ssid"], "string", "max" => 255],
       [["agency_id"], "required"],
       [["agency_id"], "integer"],
       [["agency_id"], "exist", "targetClass" => Agency::class, "targetAttribute" => ["agency_id" => "id"]]

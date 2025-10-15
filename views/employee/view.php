@@ -7,7 +7,7 @@ $this->title = $model->name . " " . $model->surname;
 
 <form action="<?= Url::to(["agency/view"]) ?>" method="get">
   <input type="hidden" name="id" value="<?= $model->agency_id ?>">
-  <button type="submit" class="edit">View</button>
+  <button type="submit" class="edit">Back</button>
 </form>
 <br>
 <h1>Employee: <?= $this->title ?></h1>

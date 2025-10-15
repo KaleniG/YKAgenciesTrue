@@ -1,7 +1,10 @@
 <?php
 
+use app\assets\AgencyAsset;
 use yii\helpers\Html;
 use yii\helpers\Url;
+
+AgencyAsset::register($this);
 
 $this->title = "Agencies";
 ?>
@@ -41,16 +44,17 @@ $this->title = "Agencies";
   </div>
   <div class="table-wrapper-2">
     <h1>Add Agency:</h1>
-    <form>
+    <form id="add-form" action="<?= Url::to(["agency/add"]) ?>">
+      <input type="hidden" name="_csrf" value="<?= Yii::$app->request->getCsrfToken() ?>">
       <label for="name">Name:
-        <input type="text" name="name" id="name" class="edit">
+        <input type="text" name="Agency[name]" id="name" class="edit">
       </label>
       <br>
       <label for="description">Description:
-        <textarea type="text" name="description" id="description" class="edit"></textarea>
+        <textarea type="text" name="Agency[description]" id="description" class="edit"></textarea>
       </label>
       <br>
-      <button type="button" name="add" class="edit">Add</button>
+      <button type="submit" class="edit">Add</button>
     </form>
   </div>
 </div>

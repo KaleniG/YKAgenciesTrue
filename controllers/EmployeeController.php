@@ -6,6 +6,7 @@ use Yii;
 use yii\base\Controller;
 use yii\web\NotFoundHttpException;
 use app\models\Employee;
+use yii\web\Response;
 
 class EmployeeController extends Controller
 {
@@ -23,5 +24,22 @@ class EmployeeController extends Controller
     return $this->render("view", [
       "model" => $model
     ]);
+  }
+
+  public function actionAdd()
+  {
+    $model = new Employee();
+
+    if ($this->request->isAjax) {
+      $this->response->format = Response::FORMAT_JSON;
+      if ($model->load($this->request->post()) && $model->save()) {
+        return [
+          "success" => true,
+          "id" => $model->id
+        ];
+      }
+
+      return ["success" => false, "message" => $model->getErrors()];
+    }
   }
 }
