@@ -19,10 +19,10 @@ $this->registerMetaTag(['name' => 'viewport', 'content' => 'width=device-width, 
   <?php $this->head() ?>
 </head>
 
-<body class="home">
+<body>
   <?php $this->beginBody() ?>
 
-  <main class="home">
+  <main>
     <?= $content ?>
   </main>
 

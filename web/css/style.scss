@@ -38,94 +38,51 @@ body {
   background-size: 8px 8px;
   font-family: 'Montserrat', sans-serif;
   scrollbar-width: none;
+  align-items: flex-start;
+  min-height: 100vh;
 }
 
 ::-webkit-scrollbar {
   display: none;
 }
 
-body.home,
-body.login {
-  align-items: center;
-  height: 100vh;
-}
-
-body.edit,
-body.present {
-  align-items: flex-start;
-  min-height: 100vh;
-}
-
 // MAIN
 
-main.home {
-  display: flex;
-  flex-direction: column;
+main {
   z-index: 1;
   border: 1px solid $color-primary;
   background-color: $color-form-backgrounds;
   border-radius: 3px;
   gap: 20px;
-  width: 400px;
-  max-width: 400px;
-  padding: 50px 50px;
-}
-
-// FORM
-form {
-  display: flex;
-  flex-direction: column;
-  z-index: 1;
-  border: 1px solid $color-primary;
-  background-color: $color-form-backgrounds;
-  border-radius: 3px;
-  gap: 20px;
-}
-
-form.home,
-form.login {
-  width: 400px;
-  max-width: 400px;
-}
-
-form.home {
-  padding: 50px 50px;
-  gap: 20px;
-}
-
-form.login {
-  padding: 40px 50px;
-  gap: 15px;
-}
-
-form.edit,
-form.present {
   width: 100%;
   margin: 40px;
   padding: 40px 50px;
+  box-sizing: border-box;
+  overflow-x: auto;
 }
 
 // BUTTON
 button {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 560;
-  border: 1px solid $color-primary;
-  border-radius: 3px;
-  background-color: $color-form-backgrounds;
-  color: $color-primary;
-  cursor: pointer;
-  user-select: none;
-  transition: transform 0.2s ease, background-color 0.5s ease, border-color 0.5s ease, color 0.5s ease, opacity 0.4s ease;
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: 560 !important;
+  border: 1px solid $color-primary !important;
+  border-radius: 3px !important;
+  background-color: $color-form-backgrounds !important;
+  color: $color-primary !important;
+  cursor: pointer !important;
+  user-select: none !important;
+  transition: transform 0.2s ease, background-color 0.5s ease, border-color 0.5s ease, color 0.5s ease, opacity 0.4s ease !important;
+  box-shadow: none !important;
 }
 
 button:hover {
-  color: $color-primary-light;
-  border-color: $color-primary-light;
+  color: $color-primary-light !important;
+  border-color: $color-primary-light !important;
 }
 
 button.home {
-  padding: 15px 50px;
-  font-size: 17px;
+  padding: 15px 50px !important;
+  font-size: 17px !important;
 }
 
 button.login {
@@ -135,8 +92,8 @@ button.login {
 
 button.edit,
 button.present {
-  padding: 12px 20px;
-  font-size: 15px;
+  padding: 12px 20px !important;
+  font-size: 15px !important;
 }
 
 button.edit.option-button,
@@ -190,7 +147,28 @@ button.present.arrow.right {
   transform: none;
 }
 
+button.edit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: $color-form-backgrounds;
+  color: rgba($color-primary, 0.5);
+  border-color: rgba($color-primary, 0.5);
+  pointer-events: none;
+}
+
+button.edit:disabled:hover {
+  color: rgba($color-primary, 0.5);
+  border-color: rgba($color-primary, 0.5);
+  transform: none;
+}
+
 // H
+h1 {
+  color: $color-primary;
+  margin-bottom: 10px;
+  font-family: 'Montserrat', sans-serif;
+}
+
 h2,
 h3 {
   margin: 0;
@@ -216,15 +194,15 @@ h3.present.course.subject {
 
 // INPUT
 input:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0 50px $color-background inset;
-  -webkit-text-fill-color: $color-primary;
-  caret-color: $color-primary;
+  -webkit-box-shadow: 0 0 0 50px $color-background inset !important;
+  -webkit-text-fill-color: $color-primary !important;
+  caret-color: $color-primary !important;
 }
 
 input:-webkit-autofill:focus {
-  -webkit-box-shadow: 0 0 0 50px $color-background inset;
-  -webkit-text-fill-color: $color-primary;
-  caret-color: $color-primary;
+  -webkit-box-shadow: 0 0 0 50px $color-background inset !important;
+  -webkit-text-fill-color: $color-primary !important;
+  caret-color: $color-primary !important;
 }
 
 input[type="text"].login {
@@ -262,36 +240,36 @@ input[type="text"].login:focus::placeholder {
 input[type="text"].edit,
 input[type="email"].edit,
 input[type="number"].edit {
-  width: 100%;
-  height: 100%;
-  box-sizing: border-box;
-  padding: 8px;
-  margin: 0;
-  border: 1px solid $color-primary;
-  background-color: $color-form-backgrounds;
-  border-radius: 3px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
-  color: $color-primary;
-  transition: background-color 0.5s ease, border-color 0.5s ease, color 0.5s ease, transform 0.2s ease;
+  width: 100% !important;
+  height: 100% !important;
+  box-sizing: border-box !important;
+  padding: 8px !important;
+  margin: 0 !important;
+  border: 1px solid $color-primary !important;
+  background-color: $color-form-backgrounds !important;
+  border-radius: 3px !important;
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: 14px !important;
+  color: $color-primary !important;
+  transition: background-color 0.5s ease, border-color 0.5s ease, color 0.5s ease, transform 0.2s ease !important;
 }
 
 input[type="text"].edit:focus,
 input[type="email"].edit:focus,
 input[type="number"].edit:focus {
-  border-color: $color-primary-light;
-  outline: none;
-  color: $color-primary-light;
+  border-color: $color-primary-light !important;
+  outline: none !important;
+  color: $color-primary-light !important;
 }
 
 input[type="number"].edit::-webkit-inner-spin-button,
 input[type="number"].edit::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+  -webkit-appearance: none !important;
+  margin: 0 !important;
 }
 
 input[type="number"].edit {
-  -moz-appearance: textfield;
+  -moz-appearance: textfield !important;
 }
 
 input.edit[type="checkbox"] {
@@ -351,11 +329,28 @@ input[type="text"].present.navbar:focus {
 
 input[type="text"].present:disabled:hover,
 input[type="text"].edit:disabled:hover {
-  border: 1px solid $color-primary;
-  color: $color-primary;
+  border: 1px solid $color-primary !important;
+  color: $color-primary !important;
 }
 
 // DIV
+div.table-container {
+  display: flex;
+  gap: 20px;
+}
+
+div.table-wrapper-1 {
+  flex: 2;
+}
+
+div.table-wrapper-2 {
+  flex: 1;
+}
+
+div.table-wrapper table {
+  width: 100%;
+}
+
 div.edit.navbar,
 div.edit.account,
 div.present.navbar,
@@ -513,60 +508,62 @@ select.edit[multiple]::-webkit-scrollbar-thumb {
 }
 
 // TABLE + ELEMENTS
-table.edit,
-table.present {
-  width: 100%;
-  border: 1px solid $color-primary;
-  border-radius: 3px;
-  border-collapse: separate;
-  border-spacing: 0;
-  overflow: hidden;
-  padding: 15px;
-  box-sizing: border-box;
+table.edit {
+  width: 100% !important;
+  padding: 0 !important;
+  border: 1px solid $color-primary !important;
+  border-radius: 3px !important;
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
 }
 
-table.edit th,
-table.edit td,
-table.present th,
-table.present td {
-  padding: 12px;
-  background-color: $color-form-backgrounds;
-  border: 1px solid rgba($color-primary, 0.4);
+table.edit th {
+  gap: 5px !important;
+  padding: 12px !important;
+  background-color: $color-primary !important;
+  color: $color-background !important;
+  font-weight: 600 !important;
 }
 
-table.edit th,
-table.present th {
-  text-align: center;
-  background-color: $color-primary;
-  color: $color-background;
-  font-weight: 600;
+table.edit th:first-child {
+  border-top-left-radius: 1px !important;
 }
 
-table.edit th:first-child,
-table.present th:first-child {
-  border-top-left-radius: 3px;
+table.edit th:last-child {
+  border-top-right-radius: 2px !important;
+  width: 225px;
+  max-width: 225px;
+  min-width: 225px;
 }
 
-table.edit th:last-child,
-table.present th:last-child {
-  border-top-right-radius: 3px;
+table.edit td {
+  gap: 10px !important;
+  padding: 12px !important;
+  background-color: $color-form-backgrounds !important;
+  border: 1px solid rgba($color-primary, 0.4) !important;
+  text-align: center !important;
 }
 
-table.edit tr:last-child td:first-child,
-table.present tr:last-child td:first-child {
-  border-bottom-left-radius: 3px;
+table.edit tr:last-child td:first-child {
+  border-bottom-left-radius: 2px !important;
 }
 
-table.edit tr:last-child td:last-child,
-table.present tr:last-child td:last-child {
-  border-bottom-right-radius: 3px;
+table.edit tr:last-child td:last-child {
+  border-bottom-right-radius: 2px !important;
 }
 
-table.edit th:last-child,
 table.edit td:last-child {
   width: 225px;
   max-width: 225px;
   min-width: 225px;
+  align-items: center;
+}
+
+table.edit td form {
+  display: inline-block;
+  margin: 0;
 }
 
 // TEXTAREA
