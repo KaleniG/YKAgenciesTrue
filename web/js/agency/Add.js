@@ -2,8 +2,8 @@ $(document).on("submit", "#add-form", function (e) {
   e.preventDefault();
 
   const form = $(this);
-  const name = $(this).find("[name='Agency[name]']").val();
-  const description = $(this).find("[name='Agency[description]']").val();
+  const name = form.find("[name='Agency[name]']").val();
+  const description = form.find("[name='Agency[description]']").val();
 
   $.ajax({
     url: form.attr("action"),
@@ -26,6 +26,30 @@ $(document).on("submit", "#add-form", function (e) {
         `);
 
         $("table.edit tbody").append(newRow);
+
+        newRow.find("button[name='delete']").on("click", function (e) {
+          e.preventDefault();
+          const row = $(this).closest("tr");
+
+          $.ajax({
+            url: "/YKAgenciesTrue/web/agency/delete",
+            type: "POST",
+            data: {
+              id: row.data("id"),
+              _csrf: yii.getCsrfToken()
+            },
+            success: function (response) {
+              if (response.success) {
+                row.remove();
+              } else {
+                console.log(response.message);
+              }
+            },
+            error: function (xhr) {
+              console.log("Error:", xhr.responseText);
+            }
+          });
+        });
 
         form[0].reset();
       } else {

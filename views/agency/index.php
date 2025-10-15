@@ -45,7 +45,6 @@ $this->title = "Agencies";
   <div class="table-wrapper-2">
     <h1>Add Agency:</h1>
     <form id="add-form" action="<?= Url::to(["agency/add"]) ?>">
-      <input type="hidden" name="_csrf" value="<?= Yii::$app->request->getCsrfToken() ?>">
       <label for="name">Name:
         <input type="text" name="Agency[name]" id="name" class="edit">
       </label>

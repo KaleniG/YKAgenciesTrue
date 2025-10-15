@@ -27,7 +27,6 @@ $this->title = $model->name;
     <br>
     <h1>Add Employee:</h1>
     <form id="add-form" action="<?= Url::to(["employee/add"]) ?>" method="post">
-      <input type="hidden" name="_csrf" value="<?= Yii::$app->request->getCsrfToken() ?>">
       <input type="hidden" name="Employee[agency_id]" value="<?= $model->id ?>">
       <label for="employee-name">Name:
         <input type="text" name="Employee[name]" id="employee-name" class="edit">
