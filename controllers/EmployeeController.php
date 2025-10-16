@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\Agency;
 use Yii;
 use yii\base\Controller;
 use yii\web\NotFoundHttpException;
@@ -17,13 +18,15 @@ class EmployeeController extends Controller
   {
     $id = Yii::$app->request->get("id");
     $model = Employee::findOne($id);
+    $agencyModels = Agency::find()->orderBy(["id" => SORT_ASC])->all();
 
     if (!$model) {
       throw new NotFoundHttpException("Employee not found.");
     }
 
     return $this->render("view", [
-      "model" => $model
+      "model" => $model,
+      "agencyModels" => $agencyModels
     ]);
   }
 
@@ -82,6 +85,8 @@ class EmployeeController extends Controller
         $model->surname = $this->request->post("surname");
       if ($this->request->post("ssid") !== null)
         $model->ssid = $this->request->post("ssid");
+      if ($this->request->post("agency_id") !== null)
+        $model->agency_id = $this->request->post("agency_id");
 
       if ($model->save()) {
         return [

@@ -43,7 +43,7 @@ $this->title = "Agencies";
     </table>
   </div>
   <div class="table-wrapper-2">
-    <h1>Add Agency:</h1>
+    <h1>Add Agency</h1>
     <form id="add-form" action="<?= Url::to(["agency/add"]) ?>">
       <label for="name">Name:
         <input type="text" name="Agency[name]" id="name" class="edit">

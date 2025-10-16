@@ -1,6 +1,7 @@
-$(document).on("change", "#agency-name, #agency-description", function () {
-  const id = $("#agency-id").val();
-  const fieldName = $(this).attr("name");
+$(document).on("change", "#agencies-table tbody input, #agencies-table tbody textarea", function () {
+  const row = $(this).closest("tr");
+  const id = row.data("id");
+  const fieldName = $(this).attr("name")
   const value = $(this).val();
 
   $.ajax({

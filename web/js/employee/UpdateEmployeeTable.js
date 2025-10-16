@@ -1,10 +1,10 @@
-$(document).on("change", "#agency-name, #agency-description", function () {
-  const id = $("#agency-id").val();
+$(document).on("change", "input.edit, select.edit", function () {
+  const id = $("#id").val();
   const fieldName = $(this).attr("name");
   const value = $(this).val();
 
   $.ajax({
-    url: "/YKAgenciesTrue/web/agency/update",
+    url: "/YKAgenciesTrue/web/employee/update",
     type: "POST",
     data: {
       _csrf: yii.getCsrfToken(),
@@ -17,7 +17,7 @@ $(document).on("change", "#agency-name, #agency-description", function () {
         $(this).val($(this).data("original"));
       }
     },
-    error: function (xhr) {
+    error: (xhr) => {
       console.log("Error:", xhr.responseText);
     }
   });

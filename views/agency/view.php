@@ -15,17 +15,18 @@ $this->title = $model->name;
 <br>
 <div class="table-container">
   <div class="table-wrapper-2">
-    <h1>Agency: <?= $model->name ?></h1>
-    <label for="agency-name">Name:
-      <input type="text" name="agency-name" value="<?= $model->name ?>" id="agency-name" class="edit">
+    <h1>Agency</h1>
+    <input type="hidden" name="id" value="<?= $model->id ?>" id="agency-id">
+    <label for=" agency-name">Name:
+      <input type="text" name="name" data-original="<?= $model->name ?>" value="<?= $model->name ?>" id="agency-name" class="edit">
     </label>
     <br>
     <label for="agency-description">Description:
-      <textarea type="text" name="agency-description" id="agency-description" class="edit"><?= Html::decode($model->description) ?></textarea>
+      <textarea type="text" name="description" data-original="<?= $model->description ?>" id="agency-description" class="edit"><?= Html::decode($model->description) ?></textarea>
     </label>
     <br>
     <br>
-    <h1>Add Employee:</h1>
+    <h1>Add Employee</h1>
     <form id="add-form" action="<?= Url::to(["employee/add"]) ?>" method="post">
       <input type="hidden" name="Employee[agency_id]" value="<?= $model->id ?>">
       <label for="employee-name">Name:
@@ -44,7 +45,7 @@ $this->title = $model->name;
     </form>
   </div>
   <div class="table-wrapper-1">
-    <h1>Employees:</h1>
+    <h1>Employees</h1>
     <table class="edit" id="employees-table">
       <thead>
         <tr>
