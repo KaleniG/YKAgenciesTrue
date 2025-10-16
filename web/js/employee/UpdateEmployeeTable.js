@@ -1,7 +1,11 @@
 $(document).on("change", "#employees-table tbody input", function () {
-  const id = $("#id").val();
+  const row = $(this).closest("tr");
+  const id = row.data("id");
   const fieldName = $(this).attr("name");
   const value = $(this).val();
+
+  if ($(this).data("original") === value)
+    return;
 
   $.ajax({
     url: "/YKAgenciesTrue/web/employee/update",
@@ -15,6 +19,7 @@ $(document).on("change", "#employees-table tbody input", function () {
       if (!response.success) {
         console.log(response.message);
         $(this).val($(this).data("original"));
+        $(this).data("original", $(this).val());
       }
     },
     error: (xhr) => {

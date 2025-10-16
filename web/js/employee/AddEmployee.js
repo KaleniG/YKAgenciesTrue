@@ -14,9 +14,9 @@ $(document).on("submit", "#add-form", function (e) {
       if (response.success) {
         const newRow = $(`
           <tr data-id="${response.id}">
-            <td><input type="text" name="name" value="${name}" class="edit"></td>
-            <td><input type="text" name="surname" value="${surname}" class="edit"></td>
-            <td><input type="text" name="ssid" value="${ssid}" class="edit"></td>
+            <td><input type="text" name="name" data-original="${name}" value="${name}" class="edit"></td>
+            <td><input type="text" name="surname" data-original="${surname}" value="${surname}" class="edit"></td>
+            <td><input type="text" name="ssid" data-original="${ssid}" value="${ssid}" class="edit"></td>
             <td>
               <button type="button" name="delete" class="edit">Delete</button>
               <form action="/YKAgenciesTrue/web/employee/view" method="get">

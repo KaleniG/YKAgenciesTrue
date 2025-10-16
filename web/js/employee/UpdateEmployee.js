@@ -3,6 +3,9 @@ $(document).on("change", "#name, #surname, #ssid", function () {
   const fieldName = $(this).attr("name");
   const value = $(this).val();
 
+  if ($(this).data("original") === value)
+    return;
+
   $.ajax({
     url: "/YKAgenciesTrue/web/employee/update",
     type: "POST",
@@ -15,6 +18,7 @@ $(document).on("change", "#name, #surname, #ssid", function () {
       if (!response.success) {
         console.log(response.message);
         $(this).val($(this).data("original"));
+        $(this).data("original", $(this).val());
       }
     },
     error: function (xhr) {
@@ -28,6 +32,9 @@ $(document).on("select", "#agency", function () {
   const fieldName = $(this).attr("name");
   const value = $(this).val();
 
+  if ($(this).data("original") === value)
+    return;
+
   $.ajax({
     url: "/YKAgenciesTrue/web/employee/update",
     type: "POST",
@@ -39,6 +46,7 @@ $(document).on("select", "#agency", function () {
     success: (response) => {
       if (!response.success) {
         console.log(response.message);
+        $(this).data("original", $(this).val());
       }
     },
     error: function (xhr) {

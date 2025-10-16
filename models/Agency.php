@@ -20,6 +20,16 @@ class Agency extends ActiveRecord
     ];
   }
 
+  public function beforeSave($insert)
+  {
+    if (parent::beforeSave($insert)) {
+      $this->name = trim($this->name);
+      $this->description = trim($this->description);
+      return true;
+    }
+    return false;
+  }
+
   public function attributeLabels()
   {
     return [
