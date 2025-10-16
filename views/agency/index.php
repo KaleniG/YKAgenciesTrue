@@ -15,8 +15,8 @@ $this->title = "Agencies";
     <table class="edit" id="agencies-table">
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Description</th>
+          <th class="sortable">Name</th>
+          <th class="sortable">Description</th>
           <th>Operations</th>
         </tr>
         <tr>

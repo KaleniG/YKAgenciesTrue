@@ -1,4 +1,4 @@
-$(document).on("change", "input.edit, select.edit", function () {
+$(document).on("change", "#employees-table tbody input", function () {
   const id = $("#id").val();
   const fieldName = $(this).attr("name");
   const value = $(this).val();

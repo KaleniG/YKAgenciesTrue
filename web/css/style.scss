@@ -566,6 +566,11 @@ table.edit td form {
   margin: 0;
 }
 
+th {
+  user-select: none !important;
+  cursor: default !important;
+}
+
 // TEXTAREA
 textarea::-webkit-scrollbar {
   display: none;

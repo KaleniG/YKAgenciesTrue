@@ -23,7 +23,9 @@ class AppAsset extends AssetBundle
   public $css = [
     'css/style.css',
   ];
-  public $js = [];
+  public $js = [
+    "js/common/Sort.js"
+  ];
   public $depends = [
     'yii\web\YiiAsset',
     'yii\bootstrap5\BootstrapAsset'

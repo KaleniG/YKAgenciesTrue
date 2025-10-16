@@ -12,6 +12,7 @@ class EmployeeAsset extends AssetBundle
     "js/agency/UpdateAgency.js",
     "js/employee/AddEmployee.js",
     "js/employee/DeleteEmployee.js",
+    "js/employee/SearchEmployee.js",
     "js/employee/UpdateEmployee.js",
     "js/employee/UpdateEmployeeTable.js"
   ];

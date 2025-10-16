@@ -49,9 +49,9 @@ $this->title = $model->name;
     <table class="edit" id="employees-table">
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Surname</th>
-          <th>SSID</th>
+          <th class="sortable">Name</th>
+          <th class="sortable">Surname</th>
+          <th class="sortable">SSID</th>
           <th>Operations</th>
         </tr>
         <tr>
