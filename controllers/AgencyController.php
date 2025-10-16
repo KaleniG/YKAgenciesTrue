@@ -71,6 +71,6 @@ class AgencyController extends Controller
       return ["success" => false, "message" => $model->getErrors()];
     }
 
-    throw new BadRequestHttpException('Invalid request');
+    throw new BadRequestHttpException("Invalid request");
   }
 }

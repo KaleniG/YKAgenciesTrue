@@ -5,7 +5,6 @@ $(document).on("submit", "#add-form", function (e) {
   const name = $(this).find("[name='Employee[name]']").val();
   const surname = $(this).find("[name='Employee[surname]']").val();
   const ssid = $(this).find("[name='Employee[ssid]']").val();
-  console.info(name);
 
   $.ajax({
     url: form.attr("action"),
@@ -29,6 +28,30 @@ $(document).on("submit", "#add-form", function (e) {
         `);
 
         $("table.edit tbody").append(newRow);
+
+        newRow.find("button[name='delete']").on("click", function (e) {
+          e.preventDefault();
+          const row = $(this).closest("tr");
+
+          $.ajax({
+            url: "/YKAgenciesTrue/web/employee/delete",
+            type: "POST",
+            data: {
+              id: row.data("id"),
+              _csrf: yii.getCsrfToken()
+            },
+            success: function (response) {
+              if (response.success) {
+                row.remove();
+              } else {
+                console.log(response.message);
+              }
+            },
+            error: function (xhr) {
+              console.log("Error:", xhr.responseText);
+            }
+          });
+        });
 
         form[0].reset();
       } else {

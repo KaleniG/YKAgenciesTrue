@@ -9,8 +9,8 @@ class AgencyAsset extends AssetBundle
   public $basePath = '@webroot';
   public $baseUrl = '@web';
   public $js = [
-    "js/agency/Add.js",
-    "js/agency/Delete.js",
+    "js/agency/AddAgency.js",
+    "js/agency/DeleteAgency.js",
   ];
   public $depends = [
     'yii\web\YiiAsset'
