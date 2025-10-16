@@ -65,4 +65,33 @@ class EmployeeController extends Controller
 
     throw new BadRequestHttpException("Invalid request");
   }
+
+  public function actionUpdate()
+  {
+    if ($this->request->isAjax) {
+      $this->response->format = Response::FORMAT_JSON;
+      $model = Employee::findOne($this->request->post("id"));
+
+      if (!$model) {
+        return ["success" => false, "message" => "Agency not found"];
+      }
+
+      if ($this->request->post("name") !== null)
+        $model->name = $this->request->post("name");
+      if ($this->request->post("surname") !== null)
+        $model->surname = $this->request->post("surname");
+      if ($this->request->post("ssid") !== null)
+        $model->ssid = $this->request->post("ssid");
+
+      if ($model->save()) {
+        return [
+          "success" => true
+        ];
+      }
+
+      return ["success" => false, "message" => $model->getErrors()];
+    }
+
+    throw new BadRequestHttpException("Invalid request");
+  }
 }

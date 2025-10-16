@@ -12,7 +12,7 @@ $this->title = "Agencies";
 <div class="table-container">
   <div class="table-wrapper-1">
     <h1>Agencies</h1>
-    <table class="edit">
+    <table class="edit" id="agencies-table">
       <thead>
         <tr>
           <th>Name</th>
@@ -28,8 +28,8 @@ $this->title = "Agencies";
       <tbody>
         <?php foreach ($models as $model): ?>
           <tr data-id="<?= $model->id ?>">
-            <td><input type="text" name="name" value="<?= $model->name ?>" class="edit"></td>
-            <td><textarea type="text" name="description" class="edit"><?= Html::decode($model->description) ?></textarea></td>
+            <td><input type="text" name="name" data-original="<?= $model->name ?>" value="<?= $model->name ?>" class="edit"></td>
+            <td><textarea type="text" name="description" data-original="<?= $model->description ?>" class="edit"><?= Html::decode($model->description) ?></textarea></td>
             <td>
               <button type="button" name="delete" class="edit">Delete</button>
               <form action="<?= Url::to(["agency/view"]) ?>" method="get">

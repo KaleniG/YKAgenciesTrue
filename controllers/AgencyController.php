@@ -15,7 +15,7 @@ class AgencyController extends Controller
 
   public function actionIndex()
   {
-    $models = Agency::find()->all();
+    $models = Agency::find()->orderBy(["id" => SORT_ASC])->all();
 
     return $this->render("index", [
       "models" => $models
@@ -63,6 +63,33 @@ class AgencyController extends Controller
       }
 
       if ($model->delete()) {
+        return [
+          "success" => true
+        ];
+      }
+
+      return ["success" => false, "message" => $model->getErrors()];
+    }
+
+    throw new BadRequestHttpException("Invalid request");
+  }
+
+  public function actionUpdate()
+  {
+    if ($this->request->isAjax) {
+      $this->response->format = Response::FORMAT_JSON;
+      $model = Agency::findOne($this->request->post("id"));
+
+      if (!$model) {
+        return ["success" => false, "message" => "Agency not found"];
+      }
+
+      if ($this->request->post("name") !== null)
+        $model->name = $this->request->post("name");
+      if ($this->request->post("description") !== null)
+        $model->description = $this->request->post("description");
+
+      if ($model->save()) {
         return [
           "success" => true
         ];

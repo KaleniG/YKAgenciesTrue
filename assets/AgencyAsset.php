@@ -11,6 +11,7 @@ class AgencyAsset extends AssetBundle
   public $js = [
     "js/agency/AddAgency.js",
     "js/agency/DeleteAgency.js",
+    "js/agency/UpdateAgency.js"
   ];
   public $depends = [
     'yii\web\YiiAsset'

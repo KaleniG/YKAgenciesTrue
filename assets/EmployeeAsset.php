@@ -10,7 +10,8 @@ class EmployeeAsset extends AssetBundle
   public $baseUrl = '@web';
   public $js = [
     "js/employee/AddEmployee.js",
-    "js/employee/DeleteEmployee.js"
+    "js/employee/DeleteEmployee.js",
+    "js/employee/UpdateEmployee.js"
   ];
   public $depends = [
     'yii\web\YiiAsset'

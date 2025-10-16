@@ -45,7 +45,7 @@ $this->title = $model->name;
   </div>
   <div class="table-wrapper-1">
     <h1>Employees:</h1>
-    <table class="edit">
+    <table class="edit" id="employees-table">
       <thead>
         <tr>
           <th>Name</th>
@@ -63,9 +63,9 @@ $this->title = $model->name;
       <tbody>
         <?php foreach ($model->employees as $employee): ?>
           <tr data-id="<?= $employee->id ?>">
-            <td><input type="text" name="name" value="<?= $employee->name ?>" class="edit"></td>
-            <td><input type="text" name="surname" value="<?= $employee->surname ?>" class="edit"></td>
-            <td><input type="text" name="ssid" value="<?= $employee->ssid ?>" class="edit"></td>
+            <td><input type="text" name="name" data-original="<?= $employee->name ?>" value="<?= $employee->name ?>" class="edit"></td>
+            <td><input type="text" name="surname" data-original="<?= $employee->surname ?>" value="<?= $employee->surname ?>" class="edit"></td>
+            <td><input type="text" name="ssid" data-original="<?= $employee->ssid ?>" value="<?= $employee->ssid ?>" class="edit"></td>
             <td>
               <button type="button" name="delete" class="edit">Delete</button>
               <form action="<?= Url::to(["employee/view"]) ?>" method="get">
