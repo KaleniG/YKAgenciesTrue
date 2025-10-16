@@ -1,4 +1,4 @@
-$(document).on("change", "#agencies-table tbody input, #agencies-table tbody textarea", function () {
+$(document).on("change", "#agencies-table tbody input[type='text'], #agencies-table tbody textarea", function () {
   const row = $(this).closest("tr");
   const id = row.data("id");
   const fieldName = $(this).attr("name")

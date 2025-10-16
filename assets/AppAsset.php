@@ -24,7 +24,8 @@ class AppAsset extends AssetBundle
     'css/style.css',
   ];
   public $js = [
-    "js/common/Sort.js"
+    "js/common/Sort.js",
+    "js/common/ContextMenu.js"
   ];
   public $depends = [
     'yii\web\YiiAsset',

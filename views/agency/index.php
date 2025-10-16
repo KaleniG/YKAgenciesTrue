@@ -9,34 +9,43 @@ AgencyAsset::register($this);
 $this->title = "Agencies";
 ?>
 
+<div id="context-menu">
+  <ul>
+    <li id="delete">Delete</li>
+    <li id="view">View</li>
+  </ul>
+</div>
+
 <div class="table-container">
   <div class="table-wrapper-1">
     <h1>Agencies</h1>
+    <div class="edit navbar">
+      <form id="op-form" action="<?= Url::to(["agency/view"]) ?>" method="get">
+        <input type="hidden" name="id">
+        <button type="button" name="delete" class="edit">Delete</button>
+        <button type="submit" class="edit">View</button>
+      </form>
+    </div>
+    <br>
     <table class="edit" id="agencies-table">
       <thead>
         <tr>
+          <th>Select</th>
           <th class="sortable">Name</th>
           <th class="sortable">Description</th>
-          <th>Operations</th>
         </tr>
         <tr>
+          <td></td>
           <td><input type="text" id="name-col-search" class="edit"></td>
           <td><input type="text" id="description-col-search" class="edit"></td>
-          <td></td>
         </tr>
       </thead>
       <tbody>
         <?php foreach ($models as $model): ?>
           <tr data-id="<?= $model->id ?>">
-            <td><input type="text" name="name" data-original="<?= $model->name ?>" value="<?= $model->name ?>" class="edit"></td>
-            <td><textarea type="text" name="description" data-original="<?= $model->description ?>" class="edit"><?= Html::decode($model->description) ?></textarea></td>
-            <td>
-              <button type="button" name="delete" class="edit">Delete</button>
-              <form action="<?= Url::to(["agency/view"]) ?>" method="get">
-                <input type="hidden" name="id" value="<?= $model->id ?>">
-                <button type="submit" class="edit">View</button>
-              </form>
-            </td>
+            <td><input type="checkbox" name="op-enabled" class="edit"></td>
+            <td><input type="text" name="name" data-original="<?= $model->name ?>" value="<?= $model->name ?>" class="edit" disabled></td>
+            <td><textarea type="text" name="description" data-original="<?= $model->description ?>" class="edit" disabled><?= Html::decode($model->description) ?></textarea></td>
           </tr>
         <?php endforeach; ?>
       </tbody>

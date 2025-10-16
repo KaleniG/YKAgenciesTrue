@@ -362,12 +362,6 @@ div.present.panoramic {
   gap: 20px;
 }
 
-div.edit.navbar,
-div.present.navbar {
-  display: flex;
-  align-items: center;
-}
-
 div.edit.account {
   width: 20%;
   display: flex;
@@ -402,6 +396,31 @@ div.present.course.box {
 
 div.present.course.box.fade-out {
   opacity: 0;
+}
+
+// CONTEXT MENU
+#context-menu {
+  position: absolute;
+  display: none;
+  background: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+}
+
+#context-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 5px 0;
+}
+
+#context-menu li {
+  padding: 8px 20px;
+  cursor: pointer;
+}
+
+#context-menu li:hover {
+  background: #eee;
 }
 
 // SELECT
